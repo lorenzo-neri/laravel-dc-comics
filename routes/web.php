@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+//uso il controller
+use App\Http\Controllers\Guests\PageController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +17,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//cambio rotta verso il controller per la home
+Route::get('/', [PageController::class, 'index'])->name('home');
