@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 
 class ComicController extends Controller
 {
@@ -12,7 +14,9 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        /* dd('ciao'); */
+        $comics = Comic::all();
+        return view('comics.index', compact('comics'));
     }
 
     /**

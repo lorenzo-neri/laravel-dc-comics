@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ComicController;
 use Illuminate\Support\Facades\Route;
 
 //uso il controller
@@ -19,3 +20,5 @@ use App\Http\Controllers\Guests\PageController;
 
 //cambio rotta verso il controller per la home
 Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::resource('comics', ComicController::class);
