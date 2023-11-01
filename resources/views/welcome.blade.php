@@ -1,8 +1,8 @@
 @extends ('layout.app')
 @section ('content')
-<main class=""></main>
+<main>
     <div class="container">
-        <div class="row">
+        <div class="row  text-center ">
             <h1>{{$message}}</h1>
         </div>
         <!-- /.row -->

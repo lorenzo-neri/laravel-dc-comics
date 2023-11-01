@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        $message = 'Ciao';
+        $message = 'Tramite l\'header puoi spostarti in altre pagine!';
         return view('welcome', compact('message'));
     }
 }
