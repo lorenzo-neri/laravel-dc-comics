@@ -1,1 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+
+header {
+    a {
+        text-decoration: none;
+        color: lightgreen;
+    }
+}

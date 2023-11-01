@@ -1,6 +1,6 @@
 @extends ('layout.app')
 @section ('content')
-<main class=""></main>
+<main class="bg-dark">
     <div class="container">
         <div class="row row-cols-4">
             @foreach($comics as $key => $comic)
