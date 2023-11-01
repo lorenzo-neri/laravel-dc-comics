@@ -43,7 +43,7 @@ class ComicController extends Controller
         return view('comic_details', compact('comic')); // views/comic_details.blade.php    
     }
 
-    /**
+    /** 
      * Show the form for editing the specified resource.
      */
     public function edit(Comic $comic)

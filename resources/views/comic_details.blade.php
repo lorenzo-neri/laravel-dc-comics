@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid bg-dark text-white">
 
         <div class="row justify-content-center">
 
@@ -15,7 +15,7 @@
 
                     <div class="col-8">
 
-                        <h2 class="text-uppercase fw-bold text-dark">{{ $comic->title }}</h2>
+                        <h2 class="text-uppercase fw-bold">{{ $comic->title }}</h2>
 
                         <p>{{ $comic->description }}</p>
 
