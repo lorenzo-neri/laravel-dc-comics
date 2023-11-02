@@ -37,6 +37,15 @@ class ComicController extends Controller
         //dd($request->all());
 
         $data = $request->all();
+
+        #to do completare form
+        $data['description'] = 'prova description';
+        $data['series'] = 'prova series';
+        $data['sale_date'] = '2023-05-05';
+        $data['type'] = 'prova type';
+        $data['artists'] = 'prova artists';
+        $data['writers'] = 'prova writers';
+
         //$file_path = null;
         if ($request->has('thumb')) {
             $file_path =  Storage::put('comic_images', $request->thumb);

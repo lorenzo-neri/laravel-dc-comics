@@ -13,7 +13,7 @@
 
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Comic">
+            <input type="text" class="form-control" name="title" id="name" aria-describedby="helpId" placeholder="Comic">
             <small id="nameHelper" class="form-text text-muted">Type the name here</small>
         </div>
 

@@ -9,5 +9,5 @@ class Comic extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'price', 'thumb'];
+    protected $fillable = ['title', 'description', 'price', 'thumb', 'series', 'sale_date', 'type', 'artists', 'writers'];
 }
