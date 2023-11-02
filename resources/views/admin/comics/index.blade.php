@@ -1,4 +1,4 @@
-@extends ('layout.app')
+@extends ('layout.admin')
 @section ('content')
 <main class="bg-dark">
     <h1 class="text-danger">
