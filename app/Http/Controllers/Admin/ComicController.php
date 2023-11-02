@@ -40,6 +40,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
+        return view('comic_details', compact('comic')); // views/comic_details.blade.php
     }
 
     /** 

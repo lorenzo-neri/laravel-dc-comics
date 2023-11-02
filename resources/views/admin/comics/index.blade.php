@@ -1,34 +1,60 @@
 @extends ('layout.app')
 @section ('content')
 <main class="bg-dark">
-    <h1 class="text-danger">ADMIN</h1>
-    <div class="container">
-        <div class="row row-cols-4">
-            @foreach($comics as $key => $comic)
-                <div class="col p-3">
-                    <div style="width: 280px; height: 650px; overflow:auto" class="card">
-                      <img style="width:;" src="{{$comic['thumb']}}" class="" alt="{{$comic['title']}}">
-                        <div class="card-body">       
-                            <div class="card-title">{{$comic['title']}}</div>
-                            <div class="card-subtitle mb-2 text-muted">{{$comic['series']}}</div>
-                            <div class="card-subtitle mb-2 text-muted">{{$comic['price']}}</div>
-                            <div class="card-subtitle mb-2 text-muted">{{$comic['sale_date']}}</div>
-                            <div class="card-subtitle mb-2 text-muted">{{$comic['type']}}</div>
-                            <div class="card-subtitle mb-2 text-muted">Artists: {{$comic['artists']}}</div>
-                            <div class="card-subtitle mb-2 text-muted">Writers: {{$comic['writers']}}</div>
-                        </div>
-                        <a class="btn btn-danger" href="{{ route('guests.comics.show', $comic->id) }}">
-                            Scopri di più
-                        </a>
-                    </div>
-                    {{-- .card --}}
-                    
+    <h1 class="text-danger">
+        ADMIN
+    </h1>
+        <div class="container">
+            <h4 class="text-muted text-uppercase">All Comics</h4>
+            <a class="btn btn-primary position-fixed bottom-0 end-0 m-4" href="{{route('comics.create')}}">Add Comic</a>
+    
+    
+            <div class="card">
+    
+                <div class="table-responsive-sm ">
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+    
+    
+                            @forelse ($comics as $comic)
+                            <tr class="">
+                                <td scope="row">{{$comic->id}}</td>
+                                <td>
+                                    <!--  <img width="100" src="{{$comic->thumb}}" alt=""> -->
+                                    <img width="100" src="{{ $comic->thumb }}" alt="">
+    
+                                </td>
+                                <td>{{$comic->title}}</td>
+                                <td>
+    
+                                    <a href="{{route('comics.show', $comic->id)}}" class="btn btn-primary">View</a>
+                                    <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-secondary">Edit</a>
+    
+                                    Delete
+                                </td>
+                            </tr>
+                            @empty
+                            <tr class="">
+    
+                                <td>Oops! No comics yet!</td>
+    
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
                 </div>
-            @endforeach
+            </div>
+    
         </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
+    
 </main>
-<!-- /. -->
+<!-- /main -->
 @endsection
