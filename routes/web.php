@@ -26,4 +26,3 @@ Route::get('/comics/{comic}', [PageController::class, 'showComic'])->name('guest
 
 #admin
 Route::resource('admin/comics', ComicController::class);
-Route::resource('admin/comics/create', ComicController::class);

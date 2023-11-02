@@ -16,7 +16,9 @@
 </head>
 
 <body>
-
+    <h1 class="text-danger">
+        ADMIN
+    </h1>
     <!-- header -->
     @include('layout.partials.header')
 

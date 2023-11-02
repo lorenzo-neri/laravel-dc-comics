@@ -1,9 +1,7 @@
 @extends ('layout.admin')
 @section ('content')
 <main class="bg-dark">
-    <h1 class="text-danger">
-        ADMIN
-    </h1>
+
         <div class="container">
             <h4 class="text-muted text-uppercase">All Comics</h4>
             <a class="btn btn-primary position-fixed bottom-0 end-0 m-4" href="{{route('comics.create')}}">Add Comic</a>
