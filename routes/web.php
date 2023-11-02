@@ -20,8 +20,9 @@ use App\Http\Controllers\Admin\ComicController;
 
 //cambio rotta verso il controller che si occupa del file welcome.blade.php per la home
 Route::get('/', [PageController::class, 'welcome'])->name('home'); //home
+Route::get('/about', [PageController::class, 'about'])->name('about'); //about page
 Route::get('/comics', [PageController::class, 'comics'])->name('guests.comics'); //comics page
-Route::get('/comics/{comic}', [PageController::class, 'comic_details'])->name('guests.comics.show'); //comics page
+Route::get('/comics/{comic}', [PageController::class, 'showComic'])->name('guests.comics.show'); //comic_details page
 
 #admin
 Route::resource('admin/comics', ComicController::class);

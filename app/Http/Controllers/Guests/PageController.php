@@ -14,6 +14,11 @@ class PageController extends Controller
         $message = 'Tramite l\'header puoi spostarti in altre pagine!';
         return view('welcome', compact('message'));
     }
+    public function about()
+    {
+        $message = 'About';
+        return view('about', compact('message'));
+    }
     public function comics()
     {
         $comics = Comic::all();

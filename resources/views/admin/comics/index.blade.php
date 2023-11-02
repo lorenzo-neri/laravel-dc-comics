@@ -17,7 +17,7 @@
                             <div class="card-subtitle mb-2 text-muted">Artists: {{$comic['artists']}}</div>
                             <div class="card-subtitle mb-2 text-muted">Writers: {{$comic['writers']}}</div>
                         </div>
-                        <a class="btn btn-danger" href="{{ route('comics.show', $comic->id) }}">
+                        <a class="btn btn-danger" href="{{ route('guests.comics.show', $comic->id) }}">
                             Scopri di più
                         </a>
                     </div>
