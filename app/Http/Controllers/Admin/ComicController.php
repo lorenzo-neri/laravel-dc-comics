@@ -47,7 +47,7 @@ class ComicController extends Controller
 
         //$file_path = null;
         if ($request->has('thumb')) {
-            $file_path =  Storage::put('thumb', $request->thumb);
+            $file_path =  Storage::put('thumbs', $request->thumb);
             $data['thumb'] = $file_path;
         }
         //dd($file_path);
@@ -105,7 +105,7 @@ class ComicController extends Controller
 
             // save the new image and take its path
             $newImageFile = $request->thumb;
-            $path = Storage::put('thumb', $newImageFile);
+            $path = Storage::put('thumbs', $newImageFile);
             $data['thumb'] = $path;
         }
 
