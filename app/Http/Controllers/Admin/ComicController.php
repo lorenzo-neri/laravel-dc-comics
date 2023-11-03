@@ -105,7 +105,7 @@ class ComicController extends Controller
 
             // save the new image and take its path
             $newImageFile = $request->thumb;
-            $path = Storage::put('sabers_images', $newImageFile);
+            $path = Storage::put('thumb', $newImageFile);
             $data['thumb'] = $path;
         }
 

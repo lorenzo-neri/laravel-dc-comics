@@ -32,10 +32,13 @@
                             @forelse ($comics as $comic)
                             <tr class="">
                                 <td scope="row">{{$comic->id}}</td>
-                                <td>
-                                    <!--  <img width="100" src="{{$comic->thumb}}" alt=""> -->
-                                    <img width="100" src="{{ $comic->thumb }}" alt="">
-    
+                                <td>                                    
+                                    @if (str_contains($comic->thumb, 'http'))
+
+                                    <img width="100" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+                                    @else
+                                    <img width="100" src="{{ asset('storage/' . $comic->thumb) }}">
+                                    @endif
                                 </td>
                                 <td>{{$comic->title}}</td>
                                 <td>
