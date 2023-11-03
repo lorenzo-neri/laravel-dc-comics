@@ -35,7 +35,6 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-
         $data = $request->all();
 
         #to do completare form
@@ -53,27 +52,23 @@ class ComicController extends Controller
         }
         //dd($file_path);
 
-
         # Add a new record the the db
-
         # Without mass assignment of fields
-        /*         $new_comic = new Comic();
-        if ($request->has('thumb')) {
-            $file_path = Storage::put('comics_images', $request->thumb);
-            $new_comic->thumb = $file_path;
-        }
-        $new_comic->title = $request->title;
-        $new_comic->price = $request->price;
-        $new_comic->save(); */
-
+        /* $new_comic = new Comic();
+            if ($request->has('thumb')) {
+                $file_path = Storage::put('comics_images', $request->thumb);
+                $new_comic->thumb = $file_path;
+            }
+            $new_comic->title = $request->title;
+            $new_comic->price = $request->price;
+            $new_comic->save(); */
 
         # With mass assignment
         //dd($data);
         $comic = Comic::create($data);
 
-
         // redirectthe user to a get route, follow the pattern ->  POST/REDIRECT/GET
-        return to_route('admin.comics.create', $comic); // new function to_route() laravel 9
+        return to_route('comics.index', $comic); // new function to_route() laravel 9
     }
 
     /**
@@ -81,7 +76,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('comic_details', compact('comic')); // views/comic_details.blade.php
+        return view('admin.comics.show', compact('comic')); // views/show.blade.php
     }
 
     /** 
