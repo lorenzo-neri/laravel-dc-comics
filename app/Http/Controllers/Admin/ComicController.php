@@ -68,7 +68,7 @@ class ComicController extends Controller
         $comic = Comic::create($data);
 
         // redirectthe user to a get route, follow the pattern ->  POST/REDIRECT/GET
-        return to_route('comics.index', $comic); // new function to_route() laravel 9
+        return to_route('comics.index', $comic)->with('message', 'Comic creato correttamente🥳');; // new function to_route() laravel 9
     }
 
     /**
@@ -112,7 +112,7 @@ class ComicController extends Controller
         //dd($data);
 
         $comic->update($data);
-        return to_route('comics.index', $comic); // new function to_route() laravel 9
+        return to_route('comics.index', $comic)->with('message', 'Comic modificato correttamente🥳');; // new function to_route() laravel 9
     }
 
     /**
