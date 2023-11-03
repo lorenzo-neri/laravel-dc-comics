@@ -47,7 +47,7 @@ class ComicController extends Controller
 
         //$file_path = null;
         if ($request->has('thumb')) {
-            $file_path =  Storage::put('comic_images', $request->thumb);
+            $file_path =  Storage::put('thumb', $request->thumb);
             $data['thumb'] = $file_path;
         }
         //dd($file_path);
@@ -120,6 +120,10 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        if ($comic->thumb) {
+            Storage::delete($comic->thumb);
+        }
+        $comic->delete();
+        return to_route('comics.index')->with('message', 'Comic eliminato correttamente🥳');
     }
 }
