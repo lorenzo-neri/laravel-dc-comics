@@ -2,6 +2,13 @@
 @section ('content')
 <main class="bg-dark">
 
+
+    @if(session('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Successo!</strong> {{session('message')}}
+    </div>
+    @endif
+
         <div class="container">
             <h4 class="text-muted text-uppercase">All Comics</h4>
             <a class="btn btn-primary position-fixed bottom-0 end-0 m-4" href="{{route('comics.create')}}">Add Comic</a>
