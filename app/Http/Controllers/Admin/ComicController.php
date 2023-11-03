@@ -84,7 +84,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -92,7 +92,27 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        //dd($request->all());
+        $data = $request->all();
+        //dd($comic->thumb);
+        //dd($comic);
+
+        if ($request->has('thumb') && $comic->thumb) {
+
+            //dd('update the image');
+            // delete the previous image
+            Storage::delete($comic->thumb);
+
+            // save the new image and take its path
+            $newImageFile = $request->thumb;
+            $path = Storage::put('sabers_images', $newImageFile);
+            $data['thumb'] = $path;
+        }
+
+        //dd($data);
+
+        $comic->update($data);
+        return to_route('comics.index', $comic); // new function to_route() laravel 9
     }
 
     /**
