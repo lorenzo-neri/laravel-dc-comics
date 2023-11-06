@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Http\Requests\StoreComicRequest;
+
 class ComicController extends Controller
 {
     /**
@@ -32,10 +34,11 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         //dd($request->all());
-        $data = $request->all();
+        //$data = $request->all();
+        $validate_data = $request->validated();
 
         #to do completare form
         $data['description'] = 'prova description';
@@ -48,7 +51,7 @@ class ComicController extends Controller
         //$file_path = null;
         if ($request->has('thumb')) {
             $file_path =  Storage::put('thumbs', $request->thumb);
-            $data['thumb'] = $file_path;
+            $validate_data['thumb'] = $file_path;
         }
         //dd($file_path);
 
@@ -65,7 +68,8 @@ class ComicController extends Controller
 
         # With mass assignment
         //dd($data);
-        $comic = Comic::create($data);
+        //dd($validate_data);
+        $comic = Comic::create($validate_data);
 
         // redirectthe user to a get route, follow the pattern ->  POST/REDIRECT/GET
         return to_route('comics.index', $comic)->with('message', 'Comic creato correttamente🥳');; // new function to_route() laravel 9
