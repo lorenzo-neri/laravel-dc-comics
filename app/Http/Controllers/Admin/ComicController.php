@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
@@ -94,12 +95,13 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         //dd($request->all());
-        $data = $request->all();
+        //$data = $request->all();
         //dd($comic->thumb);
         //dd($comic);
+        $validate_data = $request->validated();
 
         if ($request->has('thumb') && $comic->thumb) {
 
@@ -110,12 +112,12 @@ class ComicController extends Controller
             // save the new image and take its path
             $newImageFile = $request->thumb;
             $path = Storage::put('thumbs', $newImageFile);
-            $data['thumb'] = $path;
+            $validate_data['thumb'] = $path;
         }
 
         //dd($data);
 
-        $comic->update($data);
+        $comic->update($validate_data);
         return to_route('comics.index', $comic)->with('message', 'Comic modificato correttamente🥳');; // new function to_route() laravel 9
     }
 
