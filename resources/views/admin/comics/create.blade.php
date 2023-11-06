@@ -22,7 +22,10 @@
 
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="title" id="name" aria-describedby="helpId" placeholder="Comic">
+            
+            {{-- required value="{{  old('name') }} per mantenere i dati scritti in caso di errore --}}
+            <input type="text" class="form-control" name="title" id="name" aria-describedby="helpId" placeholder="Comic" required value="{{  old('title') }}">
+            
             <small id="nameHelper" class="form-text text-muted">Type the name here</small>
             @error('title')
                 <div class="text-danger"> {{$message}} </div>

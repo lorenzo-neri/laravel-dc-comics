@@ -14,7 +14,9 @@
         @method('PUT')
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="title" id="name" aria-describedby="helpId" placeholder="Acolyte Eco Battle staff" value="{{$comic->title}}">
+            
+            <input type="text" class="form-control" name="title" id="name" aria-describedby="helpId" placeholder="Acolyte Eco Battle staff" value="{{$comic->title}}" required value="{{  old('title', $comic->title) }}">
+
             <small id="nameHelper" class="form-text text-muted">Type the title here</small>
         </div>
 
