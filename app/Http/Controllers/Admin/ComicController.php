@@ -42,12 +42,15 @@ class ComicController extends Controller
         $validate_data = $request->validated();
 
         #to do completare form
-        $data['description'] = 'prova description';
+
+
+        //questi dati servivano prima che mettessi nullable a determinati valori
+        /*$data['description'] = 'prova description';
         $data['series'] = 'prova series';
         $data['sale_date'] = '2023-05-05';
         $data['type'] = 'prova type';
         $data['artists'] = 'prova artists';
-        $data['writers'] = 'prova writers';
+        $data['writers'] = 'prova writers'; */
 
         //$file_path = null;
         if ($request->has('thumb')) {
