@@ -26,4 +26,14 @@ class StoreComicRequest extends FormRequest
             'price' => 'required'
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Il campo "Titolo" è obbligatorio.',
+            'title.min' => 'Il campo "Titolo" deve contenere almeno :min caratteri.',
+            'title.max' => 'Il campo "Titolo" non può superare :max caratteri.',
+            'price.required' => 'Il campo "Prezzo" è obbligatorio.',
+        ];
+    }
 }
